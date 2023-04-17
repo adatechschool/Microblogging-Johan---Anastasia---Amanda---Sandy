@@ -17,14 +17,12 @@ class PostController extends Controller
         return response()->json($post);
     }
 
-    
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -38,8 +36,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($id)
     {
+        $post = Post::findOrFail($id);
         return view('posts.show', [
             'post' => $post
         ]);
